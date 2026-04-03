@@ -112,6 +112,94 @@
     </div>
   </section>
 </main>
+    <section class="section">
+    <div class="container">
+      <h2>Live feed</h2>
+      <p>
+        Explore recent UniClean reports from communities and responders.
+        In the full web app, this feed will update in real time as new sites are spotted,
+        claimed, and resolved.
+      </p>
+
+      <div class="feed-filters">
+        <div class="filter-group">
+          <label for="statusFilter">Status:</label>
+          <select id="statusFilter">
+            <option value="all">All</option>
+            <option value="spotted">Spotted</option>
+            <option value="claimed">Claimed</option>
+            <option value="in-progress">In Progress</option>
+            <option value="resolved">Resolved</option>
+            <option value="unclaimed">Unclaimed</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="categoryFilter">Category:</label>
+          <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="waste">Waste</option>
+            <option value="water">Water</option>
+            <option value="air">Air</option>
+            <option value="land">Land</option>
+          </select>
+        </div>
+
+        <button id="refreshFeed" class="btn secondary feed-refresh">Refresh</button>
+      </div>
+
+      <div id="feedList" class="feed-list">
+        <!-- Static sample posts for now -->
+        <article class="feed-item" data-status="spotted" data-category="waste">
+          <div class="feed-header">
+            <span class="feed-status badge spotted">Spotted</span>
+            <span class="feed-category">Waste</span>
+          </div>
+          <h3>Blocked drainage near university gate</h3>
+          <p class="feed-meta">Ilorin, Nigeria • Reported by Student Volunteer</p>
+          <p class="feed-body">
+            Plastic waste blocking a roadside drainage channel after heavy rain. Risk of flooding in nearby student housing.
+          </p>
+        </article>
+
+        <article class="feed-item" data-status="claimed" data-category="water">
+          <div class="feed-header">
+            <span class="feed-status badge claimed">Claimed</span>
+            <span class="feed-category">Water</span>
+          </div>
+          <h3>Polluted stream behind informal settlement</h3>
+          <p class="feed-meta">Manzini, Eswatini • Claimed by Local Youth Group</p>
+          <p class="feed-body">
+            Visible plastic and household waste along the stream bank. Cleanup drive scheduled for this weekend.
+          </p>
+        </article>
+
+        <article class="feed-item" data-status="resolved" data-category="waste">
+          <div class="feed-header">
+            <span class="feed-status badge resolved">Resolved</span>
+            <span class="feed-category">Waste</span>
+          </div>
+          <h3>Market-side dumpsite cleared</h3>
+          <p class="feed-meta">Pilot City • Resolved by Municipal Council</p>
+          <p class="feed-body">
+            Small informal dumpsite next to a busy market removed, with new waste bins installed on site.
+          </p>
+        </article>
+
+        <article class="feed-item" data-status="unclaimed" data-category="land">
+          <div class="feed-header">
+            <span class="feed-status badge unclaimed">Unclaimed</span>
+            <span class="feed-category">Land</span>
+          </div>
+          <h3>Open dumpsite near school</h3>
+          <p class="feed-meta">Pilot Community • Not yet claimed</p>
+          <p class="feed-body">
+            Open dumpsite 200m from a primary school, visible from the main road. Needs urgent attention.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 
 <footer class="footer">
   <div class="container footer-content">
