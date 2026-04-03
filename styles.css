@@ -215,3 +215,111 @@ nav a:hover {
     font-size: 1.6rem;
   }
 }
+/* Live feed */
+
+.feed-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.filter-group label {
+  color: var(--muted);
+}
+
+.filter-group select {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-size: 0.9rem;
+}
+
+.feed-refresh {
+  padding-inline: 14px;
+  font-size: 0.9rem;
+}
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feed-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  background: #ffffff;
+}
+
+.feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.feed-status {
+  font-size: 0.75rem;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.badge.spotted {
+  background: #2563eb;
+}
+
+.badge.claimed {
+  background: #f97316;
+}
+
+.badge['in-progress'],
+.badge.in-progress {
+  background: #eab308;
+}
+
+.badge.resolved {
+  background: #16a34a;
+}
+
+.badge.unclaimed {
+  background: #dc2626;
+}
+
+.feed-category {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.feed-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+.feed-body {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .feed-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
