@@ -1,32 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const statusFilter = document.getElementById('statusFilter');
-  const categoryFilter = document.getElementById('categoryFilter');
-  const refreshBtn = document.getElementById('refreshFeed');
-  const feedItems = document.querySelectorAll('.feed-item');
+  const feedCards = document.querySelectorAll('.uc-card');
+  const chipGroups = document.querySelectorAll('.uc-filter-group');
 
-  function applyFilters() {
-    const status = statusFilter ? statusFilter.value : 'all';
-    const category = categoryFilter ? categoryFilter.value : 'all';
+  function applyChipFilters() {
+    const activeStatus = document
+      .querySelector('[data-filter-group="status"] .uc-chip-active')
+      ?.getAttribute('data-value') || 'all';
 
-    feedItems.forEach(item => {
-      const itemStatus = item.getAttribute('data-status');
-      const itemCategory = item.getAttribute('data-category');
+    const activeCategory = document
+      .querySelector('[data-filter-group="category"] .uc-chip-active')
+      ?.getAttribute('data-value') || 'all';
 
-      const statusMatch = status === 'all' || itemStatus === status;
-      const categoryMatch = category === 'all' || itemCategory === category;
+    feedCards.forEach(card => {
+      const status = card.getAttribute('data-status');
+      const category = card.getAttribute('data-category');
 
-      item.style.display = (statusMatch && categoryMatch) ? 'block' : 'none';
+      const statusMatch = activeStatus === 'all' || status === activeStatus;
+      const categoryMatch = activeCategory === 'all' || category === activeCategory;
+
+      card.style.display = (statusMatch && categoryMatch) ? 'flex' : 'none';
     });
   }
 
-  if (statusFilter && categoryFilter) {
-    statusFilter.addEventListener('change', applyFilters);
-    categoryFilter.addEventListener('change', applyFilters);
-  }
+  chipGroups.forEach(group => {
+    group.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!target.classList.contains('uc-chip')) return;
 
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', applyFilters);
-  }
+      // Remove active from siblings in this group
+      group.querySelectorAll('.uc-chip').forEach(chip => {
+        chip.classList.remove('uc-chip-active');
+      });
+      target.classList.add('uc-chip-active');
+      applyChipFilters();
+    });
+  });
 
-  applyFilters();
+  applyChipFilters();
 });
