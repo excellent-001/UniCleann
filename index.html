@@ -119,6 +119,105 @@
   <div class="container footer-content">
     <span>© 2026 UniClean • United. Universal. Unstoppable.</span>
   </div>
+  <section class="section">
+  <div class="container">
+    <h2>Live feed</h2>
+    <p>
+      Watch environmental reports move from Spotted to Claimed, In Progress, and ✅ Resolved in real time.
+      In this MVP, these are example posts that show how UniClean will work at scale.
+    </p>
+
+    <div class="feed-filters">
+      <div class="filter-group">
+        <label for="statusFilter">Status:</label>
+        <select id="statusFilter">
+          <option value="all">All</option>
+          <option value="spotted">Spotted</option>
+          <option value="claimed">🙋 Claimed</option>
+          <option value="in-progress">In Progress</option>
+          <option value="resolved">✅ Resolved</option>
+          <option value="unclaimed">⚠️ Unclaimed</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="categoryFilter">Category:</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="waste">Waste</option>
+          <option value="water">Water</option>
+          <option value="air">Air</option>
+          <option value="land">Land</option>
+        </select>
+      </div>
+
+      <button id="refreshFeed" class="btn secondary feed-refresh">Refresh</button>
+    </div>
+
+    <div id="feedList" class="feed-list">
+      <!-- Static sample posts for now -->
+      <article class="feed-item" data-status="spotted" data-category="waste">
+        <div class="feed-top">
+          <div class="feed-badges">
+            <span class="badge status spotted">Spotted</span>
+            <span class="badge category">Waste</span>
+          </div>
+          <span class="badge severity severity-medium">Medium impact</span>
+        </div>
+        <h3>Blocked drainage near university gate</h3>
+        <p class="feed-meta">Ilorin, Nigeria • Reported by Student Volunteer</p>
+        <p class="feed-body">
+          Plastic waste blocking a roadside drainage channel after heavy rain. Risk of flooding in nearby student housing.
+        </p>
+      </article>
+
+      <article class="feed-item" data-status="claimed" data-category="water">
+        <div class="feed-top">
+          <div class="feed-badges">
+            <span class="badge status claimed">🙋 Claimed</span>
+            <span class="badge category">Water</span>
+          </div>
+          <span class="badge severity severity-high">High impact</span>
+        </div>
+        <h3>Polluted stream behind informal settlement</h3>
+        <p class="feed-meta">Manzini, Eswatini • Claimed by Local Youth Group</p>
+        <p class="feed-body">
+          Visible plastic and household waste along the stream bank. Cleanup drive scheduled for this weekend.
+        </p>
+      </article>
+
+      <article class="feed-item" data-status="resolved" data-category="waste">
+        <div class="feed-top">
+          <div class="feed-badges">
+            <span class="badge status resolved">✅ Resolved</span>
+            <span class="badge category">Waste</span>
+          </div>
+          <span class="badge severity severity-low">Low impact (now)</span>
+        </div>
+        <h3>Market-side dumpsite cleared</h3>
+        <p class="feed-meta">Pilot City • Resolved by Municipal Council</p>
+        <p class="feed-body">
+          Small informal dumpsite next to a busy market removed, with new waste bins installed on site.
+        </p>
+      </article>
+
+      <article class="feed-item" data-status="unclaimed" data-category="land">
+        <div class="feed-top">
+          <div class="feed-badges">
+            <span class="badge status unclaimed">⚠️ Unclaimed</span>
+            <span class="badge category">Land</span>
+          </div>
+          <span class="badge severity severity-high">High impact</span>
+        </div>
+        <h3>Open dumpsite near school</h3>
+        <p class="feed-meta">Pilot Community • Not yet claimed</p>
+        <p class="feed-body">
+          Open dumpsite 200m from a primary school, visible from the main road. Needs urgent attention and a committed responder.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 </footer>
 <script src="main.js"></script>
 </body>
